@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GetStartedViewController" customModule="Grocery_App" customModuleProvider="target">
+            <connections>
+                <outlet property="bottomWhiteView" destination="xg6-pO-qqr" id="NBp-ZG-IAQ"/>
+                <outlet property="getStartedButton" destination="dKX-Zl-8fK" id="XXu-cK-wOx"/>
+                <outlet property="subtitleLabel" destination="VQq-BW-wCF" id="EZY-97-5nq"/>
+                <outlet property="titleLabel" destination="Tio-Ew-dyu" id="HUp-bs-e9P"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgWomanVegetables" translatesAutoresizingMaskIntoConstraints="NO" id="zDm-iS-3Rh">
+                    <rect key="frame" x="0.0" y="0.0" width="1024" height="559"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xg6-pO-qqr">
+                    <rect key="frame" x="0.0" y="559" width="1024" height="807"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="F7s-Iz-7cb">
+                            <rect key="frame" x="50" y="50" width="924" height="707"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Buy Groceries Easily With Us" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tio-Ew-dyu">
+                                    <rect key="frame" x="0.0" y="0.0" width="924" height="31.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Buy food or groceries online easily only with mobile phone" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VQq-BW-wCF">
+                                    <rect key="frame" x="0.0" y="319" width="924" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dKX-Zl-8fK" customClass="MainButton" customModule="Grocery_App" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="627" width="924" height="80"/>
+                                    <color key="backgroundColor" name="mainGreen"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="80" id="hHM-h2-dix"/>
+                                    </constraints>
+                                    <state key="normal" title="Get Started"/>
+                                    <connections>
+                                        <action selector="onGetStartedButton:" destination="-1" eventType="touchUpInside" id="AE5-m8-pmf"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="F7s-Iz-7cb" secondAttribute="bottom" constant="50" id="1cK-gS-c6u"/>
+                        <constraint firstItem="F7s-Iz-7cb" firstAttribute="top" secondItem="xg6-pO-qqr" secondAttribute="top" constant="50" id="7Jc-g4-wi9"/>
+                        <constraint firstItem="F7s-Iz-7cb" firstAttribute="leading" secondItem="xg6-pO-qqr" secondAttribute="leading" constant="50" id="Lzh-JW-A9N"/>
+                        <constraint firstAttribute="trailing" secondItem="F7s-Iz-7cb" secondAttribute="trailing" constant="50" id="QaY-FS-RvH"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" red="0.92941176889999999" green="0.96862745289999996" blue="0.92941176889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstItem="zDm-iS-3Rh" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="6EH-0T-9ye"/>
+                <constraint firstItem="zDm-iS-3Rh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="9Ts-T6-MS8"/>
+                <constraint firstItem="xg6-pO-qqr" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="A5G-hc-jL1"/>
+                <constraint firstItem="xg6-pO-qqr" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="GYU-Tc-hKQ"/>
+                <constraint firstAttribute="bottom" secondItem="xg6-pO-qqr" secondAttribute="bottom" id="I8e-nl-f1S"/>
+                <constraint firstItem="xg6-pO-qqr" firstAttribute="top" secondItem="zDm-iS-3Rh" secondAttribute="bottom" id="Lpj-wA-bmv"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zDm-iS-3Rh" secondAttribute="trailing" id="OwL-rY-qGj"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="134.59821428571428"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="dKX-Zl-8fK">
+            <size key="intrinsicContentSize" width="80" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="imgWomanVegetables" width="447" height="559"/>
+        <namedColor name="mainGreen">
+            <color red="0.45490196078431372" green="0.74509803921568629" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

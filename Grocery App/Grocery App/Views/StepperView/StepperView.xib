@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="StepperView" customModule="Grocery_App" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="180" height="91"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="M1k-WA-wS9">
+                    <rect key="frame" x="0.0" y="44" width="180" height="47"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ye-9z-O82" customClass="CustomButton" customModule="Grocery_App" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="47" height="47"/>
+                            <color key="backgroundColor" name="mainGreenTer"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="7Ye-9z-O82" secondAttribute="height" id="YyV-fH-93X"/>
+                            </constraints>
+                            <state key="normal" title="-"/>
+                            <connections>
+                                <action selector="onMinusButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="Tfu-Ek-yBH"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcd-s2-v4Q">
+                            <rect key="frame" x="86.5" y="0.0" width="7.5" height="47"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y4X-y6-coJ" customClass="CustomButton" customModule="Grocery_App" customModuleProvider="target">
+                            <rect key="frame" x="133" y="0.0" width="47" height="47"/>
+                            <color key="backgroundColor" name="mainGreen"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="y4X-y6-coJ" secondAttribute="height" id="VTd-ov-fav"/>
+                            </constraints>
+                            <state key="normal" title="+"/>
+                            <connections>
+                                <action selector="onPlusButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="P4O-8E-Xy1"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="M1k-WA-wS9" secondAttribute="trailing" id="6ya-68-bzU"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="M1k-WA-wS9" secondAttribute="bottom" id="FXk-bj-jIa"/>
+                <constraint firstItem="M1k-WA-wS9" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="Hx6-8C-u4m"/>
+                <constraint firstItem="M1k-WA-wS9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="uux-gz-SvU"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="minusButton" destination="7Ye-9z-O82" id="Qou-uI-nRT"/>
+                <outlet property="plusButton" destination="y4X-y6-coJ" id="3e4-Hr-wzu"/>
+                <outlet property="valueLabel" destination="fcd-s2-v4Q" id="LRP-gx-Ux1"/>
+            </connections>
+            <point key="canvasLocation" x="191.30434782608697" y="-134.93303571428569"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="7Ye-9z-O82">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="y4X-y6-coJ">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <namedColor name="mainGreen">
+            <color red="0.45490196078431372" green="0.74509803921568629" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="mainGreenTer">
+            <color red="0.87965311669982105" green="0.94517673205847696" blue="0.89603402053948511" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
