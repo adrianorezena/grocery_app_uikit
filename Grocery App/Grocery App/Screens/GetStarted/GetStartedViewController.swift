@@ -16,6 +16,8 @@ class GetStartedViewController: BaseViewController {
     @IBOutlet private weak var getStartedButton: MainButton!
     @IBOutlet private weak var bottomWhiteView: UIView!
     
+    
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,10 +25,9 @@ class GetStartedViewController: BaseViewController {
     }
     
     
-    
     override func firstViewWillAppear() {
         super.firstViewWillAppear()
-        
+    
         navigationController?.setNavigationBarHidden(true, animated: false)
         
         DispatchQueue.main.async {
@@ -35,14 +36,11 @@ class GetStartedViewController: BaseViewController {
     }
     
     
-    //MARK: - Components
-    //MARK: - Private Properties
-    //MARK: - Public Properties
-    //MARK: - Constructors
-    //MARK: - Initialization
-    //MARK: - Lifecycle
+    
     //MARK: - Setup
     private func setup() {
+        overrideUserInterfaceStyle = .light
+        
         titleLabel.font = UIFont.custom(.extraBold).withAutoSize(36)
         
         subtitleLabel.font = UIFont.custom(.medium).withAutoSize(18)
@@ -51,6 +49,7 @@ class GetStartedViewController: BaseViewController {
         getStartedButton.roundedCorner = true
         getStartedButton.setTitleColor(.white, for: .normal)
         getStartedButton.titleLabel?.font = UIFont.custom(.bold).withAutoSize(18)
+        getStartedButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 60, bottom: 0, right: 60)
         
         getStartedButton.setGradientColor([.mainButtonGradientLight, .mainButtonGradientDark], for: .normal)
         getStartedButton.setGradientStartPoint(CGPoint(x: 0.0, y: 0))
@@ -71,9 +70,4 @@ class GetStartedViewController: BaseViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    
-    //MARK: - Configuration
-    //MARK: - Delegate
-    
-
 }
