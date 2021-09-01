@@ -11,6 +11,7 @@ class ProductViewController: BaseViewController {
     
     
     //MARK: - IBOutlets
+    @IBOutlet private weak var topSafeAreaView: UIView!
     @IBOutlet private weak var bottomView: UIView!
     @IBOutlet private weak var productImageView: UIImageView!
     @IBOutlet private weak var productBackgroundView: UIView!
@@ -24,10 +25,15 @@ class ProductViewController: BaseViewController {
     @IBOutlet private weak var backButton: NavButton!
     @IBOutlet private weak var cartButton: NavButton!
     
+    
+    //MARK: - Private
+    var product: Product!
+    
 
     //MARK: - Initialization
-    class func createModule() -> ProductViewController {
+    class func createModule(product: Product) -> ProductViewController {
         let controller = ProductViewController()
+        controller.product = product
         return controller
     }
     
@@ -63,7 +69,6 @@ class ProductViewController: BaseViewController {
         priceTitleLabel.textColor = .mainLabelSec
         priceLabel.font = UIFont.custom(.bold).withSize(28)
         
-        
         let stepperView = StepperView.createModule()
         rateStepperStackView.addArrangedSubview(stepperView)
         
@@ -73,6 +78,21 @@ class ProductViewController: BaseViewController {
         addToCartButton.setGradientEndPoint(CGPoint(x: 1.0, y: 0.5))
         addToCartButton.setTitleColor(.white, for: .normal)
         addToCartButton.titleLabel?.font = UIFont.custom(.medium).withSize(18)
+        
+        productLabel.text = product.name
+        priceLabel.text = "$\(product.price)"
+        descriptionLabel.text = product.description
+        
+        if let image = product.image {
+            productImageView.image = UIImage(named: image)
+        }
+        
+        if let color = product.color {
+            let uiColor = UIColor(hex: color).withAlphaComponent(0.2)
+            productBackgroundView.backgroundColor = uiColor
+            topSafeAreaView.backgroundColor = uiColor
+        }
+        
     }
     
     

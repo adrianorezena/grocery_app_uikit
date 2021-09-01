@@ -98,7 +98,60 @@ extension UIView {
         }
     }
     
+    enum Anchor {
+        case top(to: NSLayoutYAxisAnchor, constant: CGFloat? = nil)
+        case leading(to: NSLayoutXAxisAnchor, constant: CGFloat? = nil)
+        case trailing(to: NSLayoutXAxisAnchor, constant: CGFloat? = nil)
+        case bottom(to: NSLayoutYAxisAnchor, constant: CGFloat? = nil)
+        case centerY(to: NSLayoutYAxisAnchor, constant: CGFloat? = nil)
+        case centerX(to: NSLayoutXAxisAnchor, constant: CGFloat? = nil)
+        case height(to: NSLayoutDimension, constant: CGFloat? = nil)
+        case heightConstant(_ constant: CGFloat)
+        case width(to: NSLayoutDimension, constant: CGFloat? = nil)
+        case widthConstant(_ constant: CGFloat)
+    }
+
     
+    func setAnchors(_ anchors: [Anchor]) {
+        if translatesAutoresizingMaskIntoConstraints {
+            translatesAutoresizingMaskIntoConstraints = false
+        }
+        
+        for anchor in anchors {
+            switch anchor {
+            case .top(let equalTo, let constant):
+                topAnchor.constraint(equalTo: equalTo, constant: constant ?? 0).isActive = true
+            
+            case .bottom(let equalTo, let constant):
+                bottomAnchor.constraint(equalTo: equalTo, constant: constant ?? 0).isActive = true
+                
+            case .leading(let equalTo, let constant):
+                leadingAnchor.constraint(equalTo: equalTo, constant: constant ?? 0).isActive = true
+                
+            case .trailing(let equalTo, let constant):
+                trailingAnchor.constraint(equalTo: equalTo, constant: constant ?? 0).isActive = true
+                
+            case .centerX(let equalTo, let constant):
+                centerXAnchor.constraint(equalTo: equalTo, constant: constant ?? 0).isActive = true
+            
+            case .centerY(let equalTo, let constant):
+                centerYAnchor.constraint(equalTo: equalTo, constant: constant ?? 0).isActive = true
+                
+            case .heightConstant(let constant):
+                heightAnchor.constraint(equalToConstant: constant).isActive = true
+                
+            case .height(let equalTo, let constant):
+                heightAnchor.constraint(equalTo: equalTo, constant: constant ?? 0).isActive = true
+
+            case .widthConstant(let constant):
+                widthAnchor.constraint(equalToConstant: constant).isActive = true
+
+            case .width(let equalTo, let constant):
+                widthAnchor.constraint(equalTo: equalTo, constant: constant ?? 0).isActive = true
+                
+            }
+        }
+    }
     
     
 }

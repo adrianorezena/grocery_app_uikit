@@ -17,16 +17,16 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
 
     }
+    
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
  
-    
-    
-    
-    
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         if isFirstViewWillAppear {
             firstViewWillAppear()
             isFirstViewWillAppear = false

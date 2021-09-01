@@ -13,5 +13,7 @@ struct Product {
     let category: ProductCategory
     let price: Double
     let rate: Double
+    let image: String?
+    let color: String?
     let description: String?
 }

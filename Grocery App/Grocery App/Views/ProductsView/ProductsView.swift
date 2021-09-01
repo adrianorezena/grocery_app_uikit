@@ -8,6 +8,12 @@
 import UIKit
 
 
+protocol ProductsViewDataSource: AnyObject {
+    func productsView(_ productsView: ProductsView) -> Int
+    func productsView(_ productsView: ProductsView, productForItemAt indexPath: IndexPath) -> Product
+}
+
+
 protocol ProductsViewDelegate: AnyObject {
     func didSelectedProduct(product: Product)
 }
@@ -19,12 +25,14 @@ class ProductsView: UIView {
     @IBOutlet weak var collectionView: UICollectionView!
     
     
+    private var dataSource: ProductsViewDataSource?
     private var delegate: ProductsViewDelegate?
     
     
     //MARK: - Initialization
-    class func createModule(delegate: ProductsViewDelegate) -> ProductsView {
+    class func createModule(dataSource: ProductsViewDataSource, delegate: ProductsViewDelegate) -> ProductsView {
         let view: ProductsView = .fromNib()
+        view.dataSource = dataSource
         view.delegate = delegate
         return view
     }
@@ -46,8 +54,9 @@ class ProductsView: UIView {
 
 //MARK: - UICollectionViewDataSource
 extension ProductsView: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return dataSource?.productsView(self) ?? 0
     }
     
     
@@ -61,6 +70,9 @@ extension ProductsView: UICollectionViewDataSource {
             fatalError("Cell not registered")
         }
         
+        let product = dataSource!.productsView(self, productForItemAt: indexPath)
+        cell.configure(name: product.name, category: product.category.name, price: product.price, image: product.image, color: product.color)
+        
         cell.layer.cornerRadius = 20
         return cell
     }
@@ -72,7 +84,7 @@ extension ProductsView: UICollectionViewDataSource {
 extension ProductsView: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let product = Product(name: "Orange Fruit", category: ProductCategory(id: 1, name: "Fruit"), price: 14.99, rate: 4.4, description: "Description")
+        let product = dataSource!.productsView(self, productForItemAt: indexPath)
         delegate?.didSelectedProduct(product: product)
     }
     
